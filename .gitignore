@@ -1,0 +1,15 @@
+#Python 缓存
+__pycache__/
+*.pyc
+
+# 本地虚拟环境
+.venv/
+venv/
+
+# 编译产物
+build/
+*.o
+*.so
+
+# 本地编辑器配置
+.vscode/
