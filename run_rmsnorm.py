@@ -12,7 +12,8 @@ module = load(
     extra_cuda_cflags=["-O2"],
     verbose=True,
 )
-x = torch.tensor(
+def main():
+    x = torch.tensor(
     [
         [1.0, 2.0, 3.0, 4.0],
         [2.0, 0.0, 0.0, 0.0],
@@ -21,15 +22,18 @@ x = torch.tensor(
     device="cuda",
 )
 
-weight = torch.tensor(
+    weight = torch.tensor(
     [1.0, 2.0, 1.0, 0.5],
     dtype=torch.float32,
     device="cuda",
-)
+    )
 
 # 调用 CUDA 算子。
-y = module.rmsnorm(x, weight, 1e-6)
+    y = module.rmsnorm(x, weight, 1e-6)
 
-print("输出所在设备：", y.device)
-print("输出结果：")
-print(y.cpu())
+    print("输出所在设备：", y.device)
+    print("输出结果：")
+    print(y.cpu())
+
+if __name__ == "__main__":
+    main()
